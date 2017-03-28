@@ -16,5 +16,10 @@ namespace DataAdministrator
         {
             InitializeComponent();
         }
+
+        private void btnInit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
