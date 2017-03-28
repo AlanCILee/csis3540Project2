@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="4220d071-6d7d-4c06-ba11-1dd965d57ccc" ChangeDateTime="03/28/2017 00:37:24">
+    <Property Name="ElementName" Value="[dbo].[Customers].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Customers]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="email" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e247f850-7acb-4462-b650-934ebbe5d2f1" ChangeDateTime="03/28/2017 00:40:33">
+    <Property Name="ElementName" Value="[dbo].[Products].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Products]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="productId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="224540dc-4822-4990-8eac-f6d0c6695218" ChangeDateTime="03/28/2017 00:45:02">
+    <Property Name="ElementName" Value="[dbo].[Categories].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Categories]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="categoryId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a91476f3-b217-4ea5-830a-72e6f86ba00b" ChangeDateTime="03/28/2017 00:45:50">
+    <Property Name="ElementName" Value="[dbo].[Orders].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Orders]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="orderId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="05a47513-9aec-40e5-ab8d-bc63b93ee3d4" ChangeDateTime="03/28/2017 00:49:29">
+    <Property Name="ElementName" Value="[dbo].[Orders].[customerId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Orders]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="email" />
+  </Operation>
+</Operations>
