@@ -23,4 +23,41 @@ namespace DataAdministrator.EF_Classes
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }
     }
+
+    public enum ProductCategory
+    {
+        TV = 1,
+        Fridge,
+        Washer,
+        Audio,
+        Phone      
+    }
+
+    public class CategoryMockData
+    {
+        List<Category> categories;
+
+        object[,] MockData = new object[,]{
+            {ProductCategory.TV, ProductCategory.TV.ToString()},
+            {ProductCategory.Fridge, ProductCategory.Fridge.ToString()},
+            {ProductCategory.Washer, ProductCategory.Washer.ToString()},
+            {ProductCategory.Audio, ProductCategory.Audio.ToString()},
+            {ProductCategory.Phone, ProductCategory.Phone.ToString()},
+        };
+
+        public List<Category> getMockData()
+        {
+            categories = new List<Category>();
+
+            for (int i = 0; i < MockData.GetLength(0); i++)
+            {
+                categories.Add(new Category
+                {
+                    categoryId = (int)MockData[i, 0],
+                    categoryName = (string)MockData[i, 1],
+                });
+            }
+            return categories;
+        }
+    }
 }

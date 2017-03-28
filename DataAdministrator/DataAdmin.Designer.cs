@@ -1,6 +1,6 @@
 ﻿namespace DataAdministrator
 {
-    partial class Form1
+    partial class DataAdmin
     {
         /// <summary>
         /// Required designer variable.
@@ -35,33 +35,33 @@
             // 
             // btnInit
             // 
-            this.btnInit.Location = new System.Drawing.Point(108, 53);
+            this.btnInit.Location = new System.Drawing.Point(97, 66);
             this.btnInit.Name = "btnInit";
-            this.btnInit.Size = new System.Drawing.Size(75, 23);
+            this.btnInit.Size = new System.Drawing.Size(96, 23);
             this.btnInit.TabIndex = 0;
-            this.btnInit.Text = "Initial Data";
+            this.btnInit.Text = "Data initialize";
             this.btnInit.UseVisualStyleBackColor = true;
             this.btnInit.Click += new System.EventHandler(this.btnInit_Click);
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(108, 100);
+            this.btnExport.Location = new System.Drawing.Point(97, 112);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(75, 23);
+            this.btnExport.Size = new System.Drawing.Size(96, 23);
             this.btnExport.TabIndex = 1;
             this.btnExport.Text = "Export Data";
             this.btnExport.UseVisualStyleBackColor = true;
             // 
             // btnImport
             // 
-            this.btnImport.Location = new System.Drawing.Point(108, 152);
+            this.btnImport.Location = new System.Drawing.Point(97, 159);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(75, 23);
+            this.btnImport.Size = new System.Drawing.Size(96, 23);
             this.btnImport.TabIndex = 2;
             this.btnImport.Text = "Import Data";
             this.btnImport.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // DataAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -69,7 +69,7 @@
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.btnInit);
-            this.Name = "Form1";
+            this.Name = "DataAdmin";
             this.Text = "Data Administrator";
             this.ResumeLayout(false);
 
