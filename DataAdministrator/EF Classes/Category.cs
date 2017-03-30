@@ -26,7 +26,8 @@ namespace DataAdministrator.EF_Classes
 
     public enum ProductCategory
     {
-        TV = 1,
+        ALL = 0,
+        TV,
         Fridge,
         Washer,
         Audio,
@@ -38,6 +39,7 @@ namespace DataAdministrator.EF_Classes
         List<Category> categories;
 
         object[,] MockData = new object[,]{
+            {ProductCategory.ALL, ProductCategory.ALL.ToString()},
             {ProductCategory.TV, ProductCategory.TV.ToString()},
             {ProductCategory.Fridge, ProductCategory.Fridge.ToString()},
             {ProductCategory.Washer, ProductCategory.Washer.ToString()},
