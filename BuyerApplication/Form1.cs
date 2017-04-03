@@ -1,9 +1,9 @@
-﻿using BuyerApplication.EF_Classes;
+﻿using DataAdministrator.EF_Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.Entity;
+
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,13 +14,13 @@ namespace BuyerApplication
 {
     public partial class Form1 : Form
     {
-        private electronicMartEF context;
+        private ElectronicsMartEntities context;
 
         public Form1()
         {
             InitializeComponent();
 
-            context = new electronicMartEF();
+            context = new ElectronicsMartEntities();
         }
 
         private void Form1_Load(object sender, EventArgs e)

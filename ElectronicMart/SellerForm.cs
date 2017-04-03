@@ -1,14 +1,15 @@
-﻿using System;
+﻿using DataAdministrator.EF_Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DataAdministrator.EF_Classes;
-using System.Data.Entity; 
+
 
 namespace ElectronicMart
 { 
@@ -31,13 +32,7 @@ namespace ElectronicMart
 
             showCategoryOption();
 
-            gridViewStock.Columns[0].Width = 60;
-            gridViewStock.Columns[1].Width = 60;
-            gridViewStock.Columns[2].Width = 300;
-            gridViewStock.Columns[3].Width = 60;
-            gridViewStock.Columns[4].Width = 60;
-            gridViewStock.Columns[5].Width = 60;
-
+           
             var query = from product in context.Products
                         join category in context.Categories
                         on product.categoryId equals category.categoryId
@@ -52,8 +47,14 @@ namespace ElectronicMart
                         };
 
 
-            gridViewStock.DataSource = query.ToList();       
-      
+            gridViewStock.DataSource = query.ToList();
+            gridViewStock.Columns[0].Width = 60;
+            gridViewStock.Columns[1].Width = 60;
+            gridViewStock.Columns[2].Width = 300;
+            gridViewStock.Columns[3].Width = 60;
+            gridViewStock.Columns[4].Width = 60;
+            gridViewStock.Columns[5].Width = 60;
+
         }
 
         private void showCategoryOption()
