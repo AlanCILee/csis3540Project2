@@ -75,7 +75,9 @@ namespace ElectronicMart
         private void btnSearch_Click(object sender, EventArgs e)
         {
             int inputId;
-            int categoryId;
+            int inputCategoryId;
+            int inputQty;
+            string inputProductName;
 
             //check productId. empty & wrong input means search all ids' products
             try
@@ -84,17 +86,30 @@ namespace ElectronicMart
             }
             catch (Exception ex)
             {
-                inputId = -1; 
+                inputId = -1;
             }
 
-            categoryId = cbCategory.SelectedIndex;
+            try
+            {
+                inputQty = int.Parse(tbQuantity.Text);
+            }
+            catch (Exception ex)
+            {
+                inputQty = -1;
+            }
+
+            inputCategoryId = cbCategory.SelectedIndex;
+            inputProductName = tbName.Text;
+
 
             //join product and category to show category name
             var query = from product in context.Products
-                        join category in context.Categories                        
+                        join category in context.Categories
                         on product.categoryId equals category.categoryId
                         where inputId == product.productId || inputId == -1
-                        where categoryId == product.categoryId || categoryId == 0
+                        where inputCategoryId == product.categoryId || inputCategoryId == 0
+                        where inputQty >= product.quantityAvailable || inputQty == -1
+                        where inputProductName.Contains(product.productName) || inputProductName == ""
                         select new
                         {
                             ProductID = product.productId,

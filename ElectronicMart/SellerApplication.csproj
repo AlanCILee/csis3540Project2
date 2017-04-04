@@ -44,6 +44,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -90,6 +91,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BuyerApplication\BuyerApplication.csproj">
+      <Project>{80277129-267e-490d-b672-ddb66ca1d020}</Project>
+      <Name>BuyerApplication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CreateDatabase\CreateDatabase.sqlproj">
+      <Project>{1a63ad4d-a287-4e08-82bd-479540f1cb4e}</Project>
+      <Name>CreateDatabase</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataAdministrator\DataAdministrator.csproj">
       <Project>{10af48c0-cc8b-4239-82e7-21a4f1f43816}</Project>
       <Name>DataAdministrator</Name>
