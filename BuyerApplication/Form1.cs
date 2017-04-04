@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -30,11 +30,9 @@ namespace BuyerApplication
             context.Orders.Load();
             context.Products.Load();
 
-            dataGridViewProducts.DataSource = context.Products.Local.ToBindingList();
-            dataGridViewProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewProducts.Columns["categoryId"].Visible = false;
-            dataGridViewProducts.Columns["primeCost"].Visible = false;
-           dataGridViewProducts.Columns["orders"].Visible = false;
+          
+           
+            
 
             comboBoxCategory.DataSource = context.Categories.ToList();
             comboBoxCategory.ValueMember = "categoryId";
@@ -45,11 +43,22 @@ namespace BuyerApplication
 
         private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
+           int selectedCategory =comboBoxCategory.SelectedIndex;
+
+
             var query = from category in context.Products
-                        where comboBoxCategory.SelectedIndex = category.categoryId
-                        select category;
-
-
+                        where category.categoryId == selectedCategory || selectedCategory==0 
+                        select new
+                        {
+                            ProductID = category.productId,
+                            Category = category.Category.categoryName,
+                            ProductName = category.productName,
+                            Price = category.unitPrice,
+                            QTY = category.quantityAvailable
+                        };
+            dataGridViewProducts.DataSource = query.ToList();
+            dataGridViewProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            
         }
     }
 }
