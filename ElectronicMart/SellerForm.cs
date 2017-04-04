@@ -101,7 +101,6 @@ namespace ElectronicMart
             inputCategoryId = cbCategory.SelectedIndex;
             inputProductName = tbName.Text;
 
-
             //join product and category to show category name
             var query = from product in context.Products
                         join category in context.Categories
@@ -109,7 +108,7 @@ namespace ElectronicMart
                         where inputId == product.productId || inputId == -1
                         where inputCategoryId == product.categoryId || inputCategoryId == 0
                         where inputQty >= product.quantityAvailable || inputQty == -1
-                        where inputProductName.Contains(product.productName) || inputProductName == ""
+                        where product.productName.Contains(inputProductName) || inputProductName == ""
                         select new
                         {
                             ProductID = product.productId,
