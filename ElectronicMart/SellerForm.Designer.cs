@@ -38,7 +38,14 @@
             this.tbId = new System.Windows.Forms.TextBox();
             this.lbName = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
+            this.gridViewOrder = new System.Windows.Forms.DataGridView();
+            this.lbOrders = new System.Windows.Forms.Label();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnPurchase = new System.Windows.Forms.Button();
+            this.tbPurchaseCnt = new System.Windows.Forms.TextBox();
+            this.lbProductId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewOrder)).BeginInit();
             this.SuspendLayout();
             // 
             // lbStock
@@ -124,11 +131,70 @@
             this.tbName.Size = new System.Drawing.Size(86, 20);
             this.tbName.TabIndex = 8;
             // 
+            // gridViewOrder
+            // 
+            this.gridViewOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridViewOrder.Location = new System.Drawing.Point(682, 47);
+            this.gridViewOrder.Name = "gridViewOrder";
+            this.gridViewOrder.Size = new System.Drawing.Size(467, 264);
+            this.gridViewOrder.TabIndex = 10;
+            // 
+            // lbOrders
+            // 
+            this.lbOrders.AutoSize = true;
+            this.lbOrders.Location = new System.Drawing.Point(679, 22);
+            this.lbOrders.Name = "lbOrders";
+            this.lbOrders.Size = new System.Drawing.Size(66, 13);
+            this.lbOrders.TabIndex = 11;
+            this.lbOrders.Text = "Order Status";
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(1074, 17);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 13;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // btnPurchase
+            // 
+            this.btnPurchase.Location = new System.Drawing.Point(522, 13);
+            this.btnPurchase.Name = "btnPurchase";
+            this.btnPurchase.Size = new System.Drawing.Size(93, 23);
+            this.btnPurchase.TabIndex = 14;
+            this.btnPurchase.Text = "Purchase Item";
+            this.btnPurchase.UseVisualStyleBackColor = true;
+            this.btnPurchase.Click += new System.EventHandler(this.btnPurchase_Click);
+            // 
+            // tbPurchaseCnt
+            // 
+            this.tbPurchaseCnt.Location = new System.Drawing.Point(416, 15);
+            this.tbPurchaseCnt.Name = "tbPurchaseCnt";
+            this.tbPurchaseCnt.Size = new System.Drawing.Size(100, 20);
+            this.tbPurchaseCnt.TabIndex = 15;
+            // 
+            // lbProductId
+            // 
+            this.lbProductId.AutoSize = true;
+            this.lbProductId.Location = new System.Drawing.Point(339, 18);
+            this.lbProductId.Name = "lbProductId";
+            this.lbProductId.Size = new System.Drawing.Size(0, 13);
+            this.lbProductId.TabIndex = 16;
+            this.lbProductId.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // SellerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1240, 693);
+            this.Controls.Add(this.lbProductId);
+            this.Controls.Add(this.tbPurchaseCnt);
+            this.Controls.Add(this.btnPurchase);
+            this.Controls.Add(this.btnRefresh);
+            this.Controls.Add(this.lbOrders);
+            this.Controls.Add(this.gridViewOrder);
             this.Controls.Add(this.lbName);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.lbId);
@@ -143,6 +209,7 @@
             this.Text = "Seller Application";
             this.Load += new System.EventHandler(this.SellerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewOrder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,6 +227,12 @@
         private System.Windows.Forms.TextBox tbId;
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.DataGridView gridViewOrder;
+        private System.Windows.Forms.Label lbOrders;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnPurchase;
+        private System.Windows.Forms.TextBox tbPurchaseCnt;
+        private System.Windows.Forms.Label lbProductId;
     }
 }
 
