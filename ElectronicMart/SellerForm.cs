@@ -184,6 +184,7 @@ namespace ElectronicMart
 
                         tbPurchaseCnt.Text = "";
                         lbProductId.Text = "";
+                        selectedProductId = -1;
                         MessageBox.Show("Purchasing " + purchaseCnt + " of " + result.productName + " processed successfully");
                     }
                 }else

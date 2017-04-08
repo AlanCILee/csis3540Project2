@@ -43,7 +43,7 @@ namespace DataAdministrator
 
             context.SaveChanges();
 
-
+            MessageBox.Show("Database is successfully initialized");
 
         }
     }
