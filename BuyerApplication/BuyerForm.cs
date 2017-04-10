@@ -36,7 +36,6 @@ namespace BuyerApplication
             comboBoxCategory.ValueMember = "categoryId";
             comboBoxCategory.DisplayMember = "categoryName";
             comboBoxCategory.Invalidate();
-
         }
 
         private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
@@ -78,24 +77,25 @@ namespace BuyerApplication
                 return;
 
 
-            
 
+            
 
             foreach (DataGridViewRow row in dataGridViewProducts.SelectedRows)
-               productsToAdd.Add(context.Products.Find(row.Cells[0].Value));
+                //productsToAdd.Add(context.Products.Find(row.Cells[0].Value));
+                productsToAdd.Add(context.Products.Find(row.Cells[0].Value));
 
-           
-               var query = from orders in productsToAdd
-                            select new
-                            {
-                                ProductId = productsToAdd.ElementAt(0).productId,
-                                UnitPrice = productsToAdd.ElementAt(0).unitPrice,
-                                Quantity = quantity,
-                                TotalPrice = (quantity * (productsToAdd.ElementAt(0).unitPrice))
+            //var query = from orders in productsToAdd
+            //             select new
+            //             {
+            //                 ProductId = productsToAdd.ElementAt(0).productId,
+            //                 UnitPrice = productsToAdd.ElementAt(0).unitPrice,
+            //                 Quantity = quantity,
+            //                 TotalPrice = (quantity * (productsToAdd.ElementAt(0).unitPrice))
 
-                            };
-            
-            dataGridViewCart.DataSource = query.ToList();
+            //             };
+
+            //dataGridViewCart.DataSource = query.ToList();
+            dataGridViewCart.DataSource = productsToAdd.ToList();
             dataGridViewCart.Refresh();
             dataGridViewCart.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             
