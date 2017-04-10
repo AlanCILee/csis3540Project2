@@ -44,8 +44,21 @@
             this.btnPurchase = new System.Windows.Forms.Button();
             this.tbPurchaseCnt = new System.Windows.Forms.TextBox();
             this.lbProductId = new System.Windows.Forms.Label();
+            this.tbRegisterId = new System.Windows.Forms.TextBox();
+            this.tbRegisterName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbRegisterPrice = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbRegisterCost = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbRegisterCategory = new System.Windows.Forms.ComboBox();
+            this.btnRegister = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewOrder)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbStock
@@ -184,11 +197,123 @@
             this.lbProductId.TabIndex = 16;
             this.lbProductId.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // tbRegisterId
+            // 
+            this.tbRegisterId.Location = new System.Drawing.Point(105, 38);
+            this.tbRegisterId.Name = "tbRegisterId";
+            this.tbRegisterId.Size = new System.Drawing.Size(100, 20);
+            this.tbRegisterId.TabIndex = 18;
+            // 
+            // tbRegisterName
+            // 
+            this.tbRegisterName.Location = new System.Drawing.Point(105, 64);
+            this.tbRegisterName.Name = "tbRegisterName";
+            this.tbRegisterName.Size = new System.Drawing.Size(424, 20);
+            this.tbRegisterName.TabIndex = 19;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Product ID";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Name";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 118);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Category";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 92);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 13);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "Selling Price";
+            // 
+            // tbRegisterPrice
+            // 
+            this.tbRegisterPrice.Location = new System.Drawing.Point(105, 89);
+            this.tbRegisterPrice.Name = "tbRegisterPrice";
+            this.tbRegisterPrice.Size = new System.Drawing.Size(100, 20);
+            this.tbRegisterPrice.TabIndex = 22;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(13, 143);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 13);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Prime Cost";
+            // 
+            // tbRegisterCost
+            // 
+            this.tbRegisterCost.Location = new System.Drawing.Point(105, 140);
+            this.tbRegisterCost.Name = "tbRegisterCost";
+            this.tbRegisterCost.Size = new System.Drawing.Size(100, 20);
+            this.tbRegisterCost.TabIndex = 26;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnRegister);
+            this.groupBox1.Controls.Add(this.cbRegisterCategory);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.tbRegisterCost);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.tbRegisterPrice);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.tbRegisterName);
+            this.groupBox1.Controls.Add(this.tbRegisterId);
+            this.groupBox1.Location = new System.Drawing.Point(12, 360);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(541, 210);
+            this.groupBox1.TabIndex = 29;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Register New Product";
+            // 
+            // cbRegisterCategory
+            // 
+            this.cbRegisterCategory.FormattingEnabled = true;
+            this.cbRegisterCategory.Location = new System.Drawing.Point(105, 115);
+            this.cbRegisterCategory.Name = "cbRegisterCategory";
+            this.cbRegisterCategory.Size = new System.Drawing.Size(88, 21);
+            this.cbRegisterCategory.TabIndex = 30;
+            // 
+            // btnRegister
+            // 
+            this.btnRegister.Location = new System.Drawing.Point(241, 171);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(75, 23);
+            this.btnRegister.TabIndex = 31;
+            this.btnRegister.Text = "Register";
+            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            // 
             // SellerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1240, 693);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lbProductId);
             this.Controls.Add(this.tbPurchaseCnt);
             this.Controls.Add(this.btnPurchase);
@@ -210,6 +335,8 @@
             this.Load += new System.EventHandler(this.SellerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewOrder)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,6 +360,18 @@
         private System.Windows.Forms.Button btnPurchase;
         private System.Windows.Forms.TextBox tbPurchaseCnt;
         private System.Windows.Forms.Label lbProductId;
+        private System.Windows.Forms.TextBox tbRegisterId;
+        private System.Windows.Forms.TextBox tbRegisterName;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbRegisterPrice;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tbRegisterCost;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.ComboBox cbRegisterCategory;
     }
 }
 
