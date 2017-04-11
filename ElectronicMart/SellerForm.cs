@@ -57,6 +57,9 @@ namespace ElectronicMart
 
             gridViewStock.CellMouseClick += this.gridViewStock_CellMouseClick;
             gridViewOrder.CellMouseClick += this.gridViewOrder_CellMouseClick;
+
+            showOrders();
+            calculateRevenue();
         }
 
         private void showCategoryOption(ComboBox cb)
@@ -243,14 +246,15 @@ namespace ElectronicMart
 
         private void btnDeliver_Click(object sender, EventArgs e)
         {
-            try
+            if (selectedOrderId >= 0)
             {
-                if (selectedOrderId >= 0)
-                {
-                    context.Products.Load();
+                context.Orders.Load();
 
-                    var result = context.Orders.SingleOrDefault(o => o.orderId == selectedOrderId);
-                    if (result != null)
+                var result = context.Orders.SingleOrDefault(o => o.orderId == selectedOrderId);
+
+                if (result != null)
+                {
+                    if(result.delivered == 0)
                     {
                         result.delivered = 1;
                         context.SaveChanges();
@@ -259,32 +263,35 @@ namespace ElectronicMart
                         lbOrderId.Text = "";
                         selectedOrderId = -1;
                         MessageBox.Show("Order " + result.orderId + " delivered successfully");
+
+                        calculateRevenue();
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Please click product to purchase on the list");
-                }
+                    else
+                    {
+                        lbOrderId.Text = "";
+                        selectedOrderId = -1;
+                        MessageBox.Show("You already sent this order");
+                    }
 
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Please input correct purchase count: " + ex.Message);
+                MessageBox.Show("Please click order to deliver on the list");
             }
-
         }
 
         private void showOrders()
         {
             var query = context.Orders.ToList().Where(order => checkDeliveredStatus((int)order.delivered));
-            var query2 = from order in context.Orders                      
+            var query2 = from order in query.ToList()
                         select new
                         {
-                            OrderID = order.productId,                            
+                            OrderID = order.orderId,                            
                             ProductName = order.Product.productName,
                             Price = order.Product.unitPrice,
                             QTY = order.quantity,
-                            Delivered = (int)order.delivered
+                            Delivered = returnDeliveredString((int)order.delivered)
                         };
 
             gridViewOrder.DataSource = query2.ToList();
@@ -295,9 +302,9 @@ namespace ElectronicMart
             if (rbAll.Checked)
                 return true;
             else if (rbDelivered.Checked)
-                return delivered == 0;
-            else 
                 return delivered == 1;
+            else 
+                return delivered == 0;
         }
 
         string returnDeliveredString(int delivered)
@@ -311,6 +318,27 @@ namespace ElectronicMart
         private void btnOrderSearch_Click(object sender, EventArgs e)
         {
             showOrders();
+        }
+
+        private void calculateRevenue()
+        {
+            var query = from order in context.Orders.ToList()
+                        where order.delivered == 1
+                        select new
+                         {
+                             OrderId = order.orderId,                            
+                             Price = order.Product.unitPrice,
+                             QTY = order.quantity,
+                             Cost = order.Product.primeCost
+                         };
+
+            int totalCost = query.Sum(s => (int)s.Cost);
+            int grossSales = query.Sum(s => (int)s.Price);
+
+            lbSalesCount.Text = string.Format("{0}", query.Count());
+            lbSales.Text = string.Format("$ {0}", query.Sum(s => s.Price));
+            lbSalesCost.Text = string.Format("$ {0}", totalCost);
+            lbSalesIncome.Text = string.Format("$ {0}", grossSales - totalCost);
         }
     }
 }

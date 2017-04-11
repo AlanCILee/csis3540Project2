@@ -470,11 +470,10 @@
             // lbOrderId
             // 
             this.lbOrderId.AutoSize = true;
-            this.lbOrderId.Location = new System.Drawing.Point(1095, 22);
+            this.lbOrderId.Location = new System.Drawing.Point(1077, 22);
             this.lbOrderId.Name = "lbOrderId";
-            this.lbOrderId.Size = new System.Drawing.Size(41, 13);
+            this.lbOrderId.Size = new System.Drawing.Size(0, 13);
             this.lbOrderId.TabIndex = 34;
-            this.lbOrderId.Text = "label10";
             // 
             // SellerForm
             // 
