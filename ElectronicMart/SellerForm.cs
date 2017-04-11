@@ -18,6 +18,7 @@ namespace ElectronicMart
     {
         private ElectronicsMartEntities context;
         private int selectedProductId = -1;
+        private int selectedOrderId = -1;
 
         public SellerForm()
         {
@@ -55,6 +56,7 @@ namespace ElectronicMart
             gridViewStock.Columns[5].Width = 60;
 
             gridViewStock.CellMouseClick += this.gridViewStock_CellMouseClick;
+            gridViewOrder.CellMouseClick += this.gridViewOrder_CellMouseClick;
         }
 
         private void showCategoryOption(ComboBox cb)
@@ -157,6 +159,19 @@ namespace ElectronicMart
             
 
         }
+        
+        private void gridViewOrder_CellMouseClick(Object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                selectedOrderId = (int)gridViewOrder.Rows[e.RowIndex].Cells[0].Value;
+                lbOrderId.Text = "Order ID: " + selectedOrderId;
+            }
+            catch (Exception ex)
+            {
+                //In case of clicking title cell : Do nothing
+            }
+        }
 
         private void btnPurchase_Click(object sender, EventArgs e)
         {
@@ -224,6 +239,78 @@ namespace ElectronicMart
             {
                 MessageBox.Show("Please input correct value: " + ex.Message);
             }            
+        }
+
+        private void btnDeliver_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (selectedOrderId >= 0)
+                {
+                    context.Products.Load();
+
+                    var result = context.Orders.SingleOrDefault(o => o.orderId == selectedOrderId);
+                    if (result != null)
+                    {
+                        result.delivered = 1;
+                        context.SaveChanges();
+                        showOrders();
+
+                        lbOrderId.Text = "";
+                        selectedOrderId = -1;
+                        MessageBox.Show("Order " + result.orderId + " delivered successfully");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please click product to purchase on the list");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please input correct purchase count: " + ex.Message);
+            }
+
+        }
+
+        private void showOrders()
+        {
+            var query = context.Orders.ToList().Where(order => checkDeliveredStatus((int)order.delivered));
+            var query2 = from order in context.Orders                      
+                        select new
+                        {
+                            OrderID = order.productId,                            
+                            ProductName = order.Product.productName,
+                            Price = order.Product.unitPrice,
+                            QTY = order.quantity,
+                            Delivered = (int)order.delivered
+                        };
+
+            gridViewOrder.DataSource = query2.ToList();
+        }
+
+        bool checkDeliveredStatus(int delivered)
+        {
+            if (rbAll.Checked)
+                return true;
+            else if (rbDelivered.Checked)
+                return delivered == 0;
+            else 
+                return delivered == 1;
+        }
+
+        string returnDeliveredString(int delivered)
+        {
+            if (delivered == 1)
+                return "Delivered";
+            else
+                return "Waiting";
+        }
+
+        private void btnOrderSearch_Click(object sender, EventArgs e)
+        {
+            showOrders();
         }
     }
 }
