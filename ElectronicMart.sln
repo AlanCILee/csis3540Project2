@@ -1,9 +1,9 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SellerApplication", "ElectronicMart\SellerApplication.csproj", "{D38F18C3-8B65-4962-B11F-6520DC5F5122}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SellerApplication", "SellerApplication\SellerApplication.csproj", "{D38F18C3-8B65-4962-B11F-6520DC5F5122}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CreateDatabase", "CreateDatabase\CreateDatabase.sqlproj", "{1A63AD4D-A287-4E08-82BD-479540F1CB4E}"
 EndProject
