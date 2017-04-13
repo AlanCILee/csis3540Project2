@@ -125,6 +125,7 @@ namespace BuyerApplication
                     orderId = x.orderId,
                     productId = x.product.productId,
                     quantity = x.qty,
+                    delivered = 0,
                     orderDate = DateTime.Today.ToString()
                 });
                
