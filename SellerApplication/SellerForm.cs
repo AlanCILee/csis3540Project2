@@ -240,22 +240,35 @@ namespace ElectronicMart
             if (selectedOrderId >= 0)
             {
                 context.Orders.Load();
+                context.Products.Load();
 
                 var result = context.Orders.SingleOrDefault(o => o.orderId == selectedOrderId);
+                var product = context.Products.SingleOrDefault(p => p.productId == result.productId);
 
                 if (result != null)
                 {
                     if(result.delivered == 0)
                     {
-                        result.delivered = 1;
-                        context.SaveChanges();
-                        showOrders();
+                        // Check Stock Before sending
+                        if (result.quantity <= product.quantityAvailable) 
+                        {
+                            result.delivered = 1;
+                            product.quantityAvailable -= result.quantity;   
+                            context.SaveChanges();
 
-                        lbOrderId.Text = "";
-                        selectedOrderId = -1;
-                        MessageBox.Show("Order " + result.orderId + " delivered successfully");
+                            // Refresh Grid Views
+                            showOrders();
+                            showStocks();
 
-                        calculateRevenue();
+                            lbOrderId.Text = "";
+                            selectedOrderId = -1;
+                            MessageBox.Show("Order " + result.orderId + " delivered successfully");
+
+                            calculateRevenue();
+                        }else
+                        {
+                            MessageBox.Show("Ordered Quantity is bigger than Available Stock, Need to purchase more Stock");
+                        }
                     }
                     else
                     {
@@ -281,7 +294,8 @@ namespace ElectronicMart
             var query2 = from order in query.ToList()
                         select new
                         {
-                            OrderID = order.orderId,                            
+                            OrderID = order.orderId,  
+                            ProductID = order.Product.productId,                          
                             ProductName = order.Product.productName,
                             Price = order.Product.unitPrice,
                             QTY = order.quantity,
@@ -289,6 +303,7 @@ namespace ElectronicMart
                         };
 
             gridViewOrder.DataSource = query2.ToList();
+            gridViewOrder.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         // Return boolean for query, depends on delivered status
