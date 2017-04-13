@@ -24,6 +24,7 @@ namespace DataAdministrator.EF_Classes
         public virtual ICollection<Product> Products { get; set; }
     }
 
+    // Product Category Definition
     public enum ProductCategory
     {
         ALL = 0,
@@ -34,6 +35,7 @@ namespace DataAdministrator.EF_Classes
         Phone      
     }
 
+    // Product Category mock data create
     public class CategoryMockData
     {
         List<Category> categories;
@@ -47,6 +49,7 @@ namespace DataAdministrator.EF_Classes
             {ProductCategory.Phone, ProductCategory.Phone.ToString()},
         };
 
+        // Return Categories data list to insert database
         public List<Category> getMockData()
         {
             categories = new List<Category>();

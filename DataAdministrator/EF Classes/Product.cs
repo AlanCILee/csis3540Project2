@@ -34,6 +34,7 @@ namespace DataAdministrator.EF_Classes
         public virtual ICollection<Order> Orders { get; set; }
     }
 
+    // Product Mock data class
     public class ProductMockData
     {
         List<Product> products;
@@ -95,6 +96,7 @@ namespace DataAdministrator.EF_Classes
             {50, "LG G5", 800, ProductCategory.Phone, 5, 299},
         };
 
+        // Create Mock Products list to insert database 
         public List<Product> getMockData()
         {
             products = new List<Product>();

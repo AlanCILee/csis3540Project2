@@ -27,15 +27,19 @@ namespace ElectronicMart
         }
 
 
-
         private void SellerForm_Load(object sender, EventArgs e)
         {
+            // Load data 
             context.Products.Load();
             context.Categories.Load();
+            context.Orders.Load();
+            context.Categories.Load();
 
+            // Setup Combo Box contents in form
             showCategoryOption(cbCategory);
             showCategoryOption(cbRegisterCategory);
 
+            // Show initial products list & format of GridView
             var query = from product in context.Products
                         select new
                         {
@@ -55,13 +59,19 @@ namespace ElectronicMart
             gridViewStock.Columns[4].Width = 60;
             gridViewStock.Columns[5].Width = 60;
 
+            // Show Order Grid View
+            showOrders();
+
+            // Show initial Revenue Status 
+            calculateRevenue();
+
+            // Register Gridview click event to find the id of clicked item
             gridViewStock.CellMouseClick += this.gridViewStock_CellMouseClick;
             gridViewOrder.CellMouseClick += this.gridViewOrder_CellMouseClick;
 
-            showOrders();
-            calculateRevenue();
         }
 
+        // Register a Combo box's data with categories data
         private void showCategoryOption(ComboBox cb)
         {
             cb.DataSource = context.Categories.Local.ToArray();
@@ -69,12 +79,13 @@ namespace ElectronicMart
             cb.ValueMember = "CategoryId";
         }
 
-        //search products with search condition
+        // search products with search condition
         private void btnSearch_Click(object sender, EventArgs e)
         {
             showStocks();
         }
 
+        // Fills in stock gridview by search conditions
         private void showStocks()
         {
 
@@ -83,7 +94,7 @@ namespace ElectronicMart
             int inputQty;
             string inputProductName;
 
-            //check productId. empty & wrong input means search all ids' products
+            //check productId. empty & wrong input means search all id products
             try
             {
                 inputId = int.Parse(tbId.Text);
@@ -93,6 +104,7 @@ namespace ElectronicMart
                 inputId = -1;
             }
 
+            // check stock quantity. empty & wrong input means search all quantity products 
             try
             {
                 inputQty = int.Parse(tbQuantity.Text);
@@ -105,7 +117,7 @@ namespace ElectronicMart
             inputCategoryId = cbCategory.SelectedIndex;
             inputProductName = tbName.Text;
 
-            //join product and category to show category name
+            // use LINQ query with search conditions
             var query = from product in context.Products
                         where inputId == product.productId || inputId == -1
                         where inputCategoryId == product.categoryId || inputCategoryId == 0
@@ -124,30 +136,7 @@ namespace ElectronicMart
             gridViewStock.DataSource = query.ToList();
         }
 
-        private bool checkId(int productId)
-        {
-            try
-            {
-                int inputId = int.Parse(tbId.Text);
-                return inputId == productId;
-            }
-            catch (Exception e)
-            {
-                return true;
-            }
-        }
-
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            context.Orders.Load();
-            gridViewOrder.DataSource = context.Orders.Local.ToBindingList();
-            gridViewOrder.Columns["delivered"].Visible = false;
-            gridViewOrder.Columns["email"].Visible = false;
-            gridViewOrder.Columns["Customer"].Visible = false;
-            gridViewOrder.Columns["Product"].Visible = false;
-
-        }
-
+        // Stock grid view cell click event to store clicked item's id
         private void gridViewStock_CellMouseClick(Object sender, DataGridViewCellMouseEventArgs e)
         {
             try
@@ -158,11 +147,10 @@ namespace ElectronicMart
             catch(Exception ex)
             {
                 //In case of clicking title cell : Do nothing
-            }
-            
-
+            }          
         }
-        
+
+        // Order grid view cell click event to store clicked item's id
         private void gridViewOrder_CellMouseClick(Object sender, DataGridViewCellMouseEventArgs e)
         {
             try
@@ -176,6 +164,7 @@ namespace ElectronicMart
             }
         }
 
+        // Purchase Stock Processing Button Event
         private void btnPurchase_Click(object sender, EventArgs e)
         {
             try
@@ -185,10 +174,11 @@ namespace ElectronicMart
                 {
                     context.Products.Load(); 
                     
+                    // Find product instance which was clicked 
                     var result = context.Products.SingleOrDefault(p => p.productId == selectedProductId);
                     if (result != null)
                     {
-                        result.quantityAvailable += purchaseCnt;
+                        result.quantityAvailable += purchaseCnt;    // Add number of purchasing
                         context.SaveChanges();
                         showStocks();
 
@@ -206,14 +196,13 @@ namespace ElectronicMart
             {
                 MessageBox.Show("Please input correct purchase count: " + ex.Message);
             }
-
         }
 
+        // Register New Product Button Click Event
         private void btnRegister_Click(object sender, EventArgs e)
         {
             try
-            {
-                    
+            {                    
                 int rProductId = int.Parse(tbRegisterId.Text);
                 string rProductName = tbRegisterName.Text;
                 int rProductPrice = int.Parse(tbRegisterPrice.Text);           
@@ -225,6 +214,7 @@ namespace ElectronicMart
                     return;
                 }
 
+                // Create object and Add to the database
                 context.Products.Add(new Product
                 {
                     productId = rProductId,
@@ -244,6 +234,7 @@ namespace ElectronicMart
             }            
         }
 
+        // Order Deliver click event
         private void btnDeliver_Click(object sender, EventArgs e)
         {
             if (selectedOrderId >= 0)
@@ -281,8 +272,11 @@ namespace ElectronicMart
             }
         }
 
+        // Show Order List with Radio Button Condition
         private void showOrders()
         {
+            context.Orders.Load();
+
             var query = context.Orders.ToList().Where(order => checkDeliveredStatus((int)order.delivered));
             var query2 = from order in query.ToList()
                         select new
@@ -297,6 +291,7 @@ namespace ElectronicMart
             gridViewOrder.DataSource = query2.ToList();
         }
 
+        // Return boolean for query, depends on delivered status
         bool checkDeliveredStatus(int delivered)
         {
             if (rbAll.Checked)
@@ -307,6 +302,7 @@ namespace ElectronicMart
                 return delivered == 0;
         }
 
+        // Return delivery status string 
         string returnDeliveredString(int delivered)
         {
             if (delivered == 1)
@@ -315,13 +311,16 @@ namespace ElectronicMart
                 return "Waiting";
         }
 
+        // Order Search button click event
         private void btnOrderSearch_Click(object sender, EventArgs e)
         {
             showOrders();
         }
 
+        // Revenu generate and display method
         private void calculateRevenue()
         {
+            // Find delivered items only
             var query = from order in context.Orders.ToList()
                         where order.delivered == 1
                         select new
@@ -332,11 +331,12 @@ namespace ElectronicMart
                              Cost = order.Product.primeCost
                          };
 
+            // Caculate total coast and revenue
             int totalCost = query.Sum(s => (int)s.Cost);
             int grossSales = query.Sum(s => (int)s.Price);
 
             lbSalesCount.Text = string.Format("{0}", query.Count());
-            lbSales.Text = string.Format("$ {0}", query.Sum(s => s.Price));
+            lbSales.Text = string.Format("$ {0}", grossSales);
             lbSalesCost.Text = string.Format("$ {0}", totalCost);
             lbSalesIncome.Text = string.Format("$ {0}", grossSales - totalCost);
         }

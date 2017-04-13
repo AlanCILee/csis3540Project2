@@ -45,37 +45,37 @@
             this.lbProductId = new System.Windows.Forms.Label();
             this.tbRegisterId = new System.Windows.Forms.TextBox();
             this.tbRegisterName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbRegisterProductId = new System.Windows.Forms.Label();
+            this.lbRegisterName = new System.Windows.Forms.Label();
+            this.lbRegisterCategory = new System.Windows.Forms.Label();
+            this.lbRegisterSellingPrice = new System.Windows.Forms.Label();
             this.tbRegisterPrice = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbRegisterPrimeCost = new System.Windows.Forms.Label();
             this.tbRegisterCost = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbRegisterNewProduct = new System.Windows.Forms.GroupBox();
             this.btnRegister = new System.Windows.Forms.Button();
             this.cbRegisterCategory = new System.Windows.Forms.ComboBox();
             this.btnDeliver = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbRevenueInfo = new System.Windows.Forms.GroupBox();
             this.lbSalesIncome = new System.Windows.Forms.Label();
             this.lbSalesCost = new System.Windows.Forms.Label();
             this.lbSales = new System.Windows.Forms.Label();
             this.lbSalesCount = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbRevenueIncome = new System.Windows.Forms.Label();
+            this.lbRevenueCost = new System.Windows.Forms.Label();
+            this.lbRevenueGrossSales = new System.Windows.Forms.Label();
+            this.lbRevenuSales = new System.Windows.Forms.Label();
             this.btnOrderSearch = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gbRadioButtons = new System.Windows.Forms.GroupBox();
             this.rbAll = new System.Windows.Forms.RadioButton();
             this.rbNotDelivred = new System.Windows.Forms.RadioButton();
             this.rbDelivered = new System.Windows.Forms.RadioButton();
             this.lbOrderId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewOrder)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.gbRegisterNewProduct.SuspendLayout();
+            this.gbRevenueInfo.SuspendLayout();
+            this.gbRadioButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbStock
@@ -218,41 +218,41 @@
             this.tbRegisterName.Size = new System.Drawing.Size(424, 20);
             this.tbRegisterName.TabIndex = 19;
             // 
-            // label1
+            // lbRegisterProductId
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Product ID";
+            this.lbRegisterProductId.AutoSize = true;
+            this.lbRegisterProductId.Location = new System.Drawing.Point(13, 41);
+            this.lbRegisterProductId.Name = "lbRegisterProductId";
+            this.lbRegisterProductId.Size = new System.Drawing.Size(58, 13);
+            this.lbRegisterProductId.TabIndex = 20;
+            this.lbRegisterProductId.Text = "Product ID";
             // 
-            // label2
+            // lbRegisterName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Name";
+            this.lbRegisterName.AutoSize = true;
+            this.lbRegisterName.Location = new System.Drawing.Point(13, 67);
+            this.lbRegisterName.Name = "lbRegisterName";
+            this.lbRegisterName.Size = new System.Drawing.Size(35, 13);
+            this.lbRegisterName.TabIndex = 21;
+            this.lbRegisterName.Text = "Name";
             // 
-            // label3
+            // lbRegisterCategory
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 118);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 13);
-            this.label3.TabIndex = 25;
-            this.label3.Text = "Category";
+            this.lbRegisterCategory.AutoSize = true;
+            this.lbRegisterCategory.Location = new System.Drawing.Point(13, 118);
+            this.lbRegisterCategory.Name = "lbRegisterCategory";
+            this.lbRegisterCategory.Size = new System.Drawing.Size(49, 13);
+            this.lbRegisterCategory.TabIndex = 25;
+            this.lbRegisterCategory.Text = "Category";
             // 
-            // label4
+            // lbRegisterSellingPrice
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 92);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 13);
-            this.label4.TabIndex = 24;
-            this.label4.Text = "Selling Price";
+            this.lbRegisterSellingPrice.AutoSize = true;
+            this.lbRegisterSellingPrice.Location = new System.Drawing.Point(13, 92);
+            this.lbRegisterSellingPrice.Name = "lbRegisterSellingPrice";
+            this.lbRegisterSellingPrice.Size = new System.Drawing.Size(65, 13);
+            this.lbRegisterSellingPrice.TabIndex = 24;
+            this.lbRegisterSellingPrice.Text = "Selling Price";
             // 
             // tbRegisterPrice
             // 
@@ -261,14 +261,14 @@
             this.tbRegisterPrice.Size = new System.Drawing.Size(100, 20);
             this.tbRegisterPrice.TabIndex = 22;
             // 
-            // label6
+            // lbRegisterPrimeCost
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 143);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 13);
-            this.label6.TabIndex = 28;
-            this.label6.Text = "Prime Cost";
+            this.lbRegisterPrimeCost.AutoSize = true;
+            this.lbRegisterPrimeCost.Location = new System.Drawing.Point(13, 143);
+            this.lbRegisterPrimeCost.Name = "lbRegisterPrimeCost";
+            this.lbRegisterPrimeCost.Size = new System.Drawing.Size(57, 13);
+            this.lbRegisterPrimeCost.TabIndex = 28;
+            this.lbRegisterPrimeCost.Text = "Prime Cost";
             // 
             // tbRegisterCost
             // 
@@ -277,25 +277,25 @@
             this.tbRegisterCost.Size = new System.Drawing.Size(100, 20);
             this.tbRegisterCost.TabIndex = 26;
             // 
-            // groupBox1
+            // gbRegisterNewProduct
             // 
-            this.groupBox1.Controls.Add(this.btnRegister);
-            this.groupBox1.Controls.Add(this.cbRegisterCategory);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.tbRegisterCost);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.tbRegisterPrice);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.tbRegisterName);
-            this.groupBox1.Controls.Add(this.tbRegisterId);
-            this.groupBox1.Location = new System.Drawing.Point(12, 360);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(541, 210);
-            this.groupBox1.TabIndex = 29;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Register New Product";
+            this.gbRegisterNewProduct.Controls.Add(this.btnRegister);
+            this.gbRegisterNewProduct.Controls.Add(this.cbRegisterCategory);
+            this.gbRegisterNewProduct.Controls.Add(this.lbRegisterPrimeCost);
+            this.gbRegisterNewProduct.Controls.Add(this.tbRegisterCost);
+            this.gbRegisterNewProduct.Controls.Add(this.lbRegisterCategory);
+            this.gbRegisterNewProduct.Controls.Add(this.lbRegisterSellingPrice);
+            this.gbRegisterNewProduct.Controls.Add(this.tbRegisterPrice);
+            this.gbRegisterNewProduct.Controls.Add(this.lbRegisterName);
+            this.gbRegisterNewProduct.Controls.Add(this.lbRegisterProductId);
+            this.gbRegisterNewProduct.Controls.Add(this.tbRegisterName);
+            this.gbRegisterNewProduct.Controls.Add(this.tbRegisterId);
+            this.gbRegisterNewProduct.Location = new System.Drawing.Point(12, 360);
+            this.gbRegisterNewProduct.Name = "gbRegisterNewProduct";
+            this.gbRegisterNewProduct.Size = new System.Drawing.Size(541, 210);
+            this.gbRegisterNewProduct.TabIndex = 29;
+            this.gbRegisterNewProduct.TabStop = false;
+            this.gbRegisterNewProduct.Text = "Register New Product";
             // 
             // btnRegister
             // 
@@ -325,94 +325,90 @@
             this.btnDeliver.UseVisualStyleBackColor = true;
             this.btnDeliver.Click += new System.EventHandler(this.btnDeliver_Click);
             // 
-            // groupBox2
+            // gbRevenueInfo
             // 
-            this.groupBox2.Controls.Add(this.lbSalesIncome);
-            this.groupBox2.Controls.Add(this.lbSalesCost);
-            this.groupBox2.Controls.Add(this.lbSales);
-            this.groupBox2.Controls.Add(this.lbSalesCount);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(682, 369);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(467, 201);
-            this.groupBox2.TabIndex = 31;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Revenue Info";
+            this.gbRevenueInfo.Controls.Add(this.lbSalesIncome);
+            this.gbRevenueInfo.Controls.Add(this.lbSalesCost);
+            this.gbRevenueInfo.Controls.Add(this.lbSales);
+            this.gbRevenueInfo.Controls.Add(this.lbSalesCount);
+            this.gbRevenueInfo.Controls.Add(this.lbRevenueIncome);
+            this.gbRevenueInfo.Controls.Add(this.lbRevenueCost);
+            this.gbRevenueInfo.Controls.Add(this.lbRevenueGrossSales);
+            this.gbRevenueInfo.Controls.Add(this.lbRevenuSales);
+            this.gbRevenueInfo.Location = new System.Drawing.Point(682, 369);
+            this.gbRevenueInfo.Name = "gbRevenueInfo";
+            this.gbRevenueInfo.Size = new System.Drawing.Size(467, 201);
+            this.gbRevenueInfo.TabIndex = 31;
+            this.gbRevenueInfo.TabStop = false;
+            this.gbRevenueInfo.Text = "Revenue Info";
             // 
             // lbSalesIncome
             // 
             this.lbSalesIncome.AutoSize = true;
             this.lbSalesIncome.Location = new System.Drawing.Point(96, 114);
             this.lbSalesIncome.Name = "lbSalesIncome";
-            this.lbSalesIncome.Size = new System.Drawing.Size(41, 13);
+            this.lbSalesIncome.Size = new System.Drawing.Size(0, 13);
             this.lbSalesIncome.TabIndex = 7;
-            this.lbSalesIncome.Text = "label10";
             // 
             // lbSalesCost
             // 
             this.lbSalesCost.AutoSize = true;
             this.lbSalesCost.Location = new System.Drawing.Point(93, 87);
             this.lbSalesCost.Name = "lbSalesCost";
-            this.lbSalesCost.Size = new System.Drawing.Size(41, 13);
+            this.lbSalesCost.Size = new System.Drawing.Size(0, 13);
             this.lbSalesCost.TabIndex = 6;
-            this.lbSalesCost.Text = "label10";
             // 
             // lbSales
             // 
             this.lbSales.AutoSize = true;
             this.lbSales.Location = new System.Drawing.Point(118, 62);
             this.lbSales.Name = "lbSales";
-            this.lbSales.Size = new System.Drawing.Size(41, 13);
+            this.lbSales.Size = new System.Drawing.Size(0, 13);
             this.lbSales.TabIndex = 5;
-            this.lbSales.Text = "label10";
             // 
             // lbSalesCount
             // 
             this.lbSalesCount.AutoSize = true;
             this.lbSalesCount.Location = new System.Drawing.Point(118, 35);
             this.lbSalesCount.Name = "lbSalesCount";
-            this.lbSalesCount.Size = new System.Drawing.Size(41, 13);
+            this.lbSalesCount.Size = new System.Drawing.Size(0, 13);
             this.lbSalesCount.TabIndex = 4;
-            this.lbSalesCount.Text = "label10";
             // 
-            // label9
+            // lbRevenueIncome
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(21, 114);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(69, 13);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "Total Income";
+            this.lbRevenueIncome.AutoSize = true;
+            this.lbRevenueIncome.Location = new System.Drawing.Point(21, 114);
+            this.lbRevenueIncome.Name = "lbRevenueIncome";
+            this.lbRevenueIncome.Size = new System.Drawing.Size(69, 13);
+            this.lbRevenueIncome.TabIndex = 3;
+            this.lbRevenueIncome.Text = "Total Income";
             // 
-            // label8
+            // lbRevenueCost
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 87);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(55, 13);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Total Cost";
+            this.lbRevenueCost.AutoSize = true;
+            this.lbRevenueCost.Location = new System.Drawing.Point(21, 87);
+            this.lbRevenueCost.Name = "lbRevenueCost";
+            this.lbRevenueCost.Size = new System.Drawing.Size(55, 13);
+            this.lbRevenueCost.TabIndex = 2;
+            this.lbRevenueCost.Text = "Total Cost";
             // 
-            // label7
+            // lbRevenueGrossSales
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(21, 62);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(90, 13);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Total Gross Sales";
+            this.lbRevenueGrossSales.AutoSize = true;
+            this.lbRevenueGrossSales.Location = new System.Drawing.Point(21, 62);
+            this.lbRevenueGrossSales.Name = "lbRevenueGrossSales";
+            this.lbRevenueGrossSales.Size = new System.Drawing.Size(90, 13);
+            this.lbRevenueGrossSales.TabIndex = 1;
+            this.lbRevenueGrossSales.Text = "Total Gross Sales";
             // 
-            // label5
+            // lbRevenuSales
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 35);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(91, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Total Sales Count";
+            this.lbRevenuSales.AutoSize = true;
+            this.lbRevenuSales.Location = new System.Drawing.Point(21, 35);
+            this.lbRevenuSales.Name = "lbRevenuSales";
+            this.lbRevenuSales.Size = new System.Drawing.Size(91, 13);
+            this.lbRevenuSales.TabIndex = 0;
+            this.lbRevenuSales.Text = "Total Sales Count";
             // 
             // btnOrderSearch
             // 
@@ -424,16 +420,16 @@
             this.btnOrderSearch.UseVisualStyleBackColor = true;
             this.btnOrderSearch.Click += new System.EventHandler(this.btnOrderSearch_Click);
             // 
-            // groupBox3
+            // gbRadioButtons
             // 
-            this.groupBox3.Controls.Add(this.rbAll);
-            this.groupBox3.Controls.Add(this.rbNotDelivred);
-            this.groupBox3.Controls.Add(this.rbDelivered);
-            this.groupBox3.Location = new System.Drawing.Point(694, 311);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(225, 31);
-            this.groupBox3.TabIndex = 33;
-            this.groupBox3.TabStop = false;
+            this.gbRadioButtons.Controls.Add(this.rbAll);
+            this.gbRadioButtons.Controls.Add(this.rbNotDelivred);
+            this.gbRadioButtons.Controls.Add(this.rbDelivered);
+            this.gbRadioButtons.Location = new System.Drawing.Point(694, 311);
+            this.gbRadioButtons.Name = "gbRadioButtons";
+            this.gbRadioButtons.Size = new System.Drawing.Size(225, 31);
+            this.gbRadioButtons.TabIndex = 33;
+            this.gbRadioButtons.TabStop = false;
             // 
             // rbAll
             // 
@@ -481,11 +477,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1240, 693);
             this.Controls.Add(this.lbOrderId);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.gbRadioButtons);
             this.Controls.Add(this.btnOrderSearch);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.gbRevenueInfo);
             this.Controls.Add(this.btnDeliver);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbRegisterNewProduct);
             this.Controls.Add(this.lbProductId);
             this.Controls.Add(this.tbPurchaseCnt);
             this.Controls.Add(this.btnPurchase);
@@ -506,12 +502,12 @@
             this.Load += new System.EventHandler(this.SellerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewOrder)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.gbRegisterNewProduct.ResumeLayout(false);
+            this.gbRegisterNewProduct.PerformLayout();
+            this.gbRevenueInfo.ResumeLayout(false);
+            this.gbRevenueInfo.PerformLayout();
+            this.gbRadioButtons.ResumeLayout(false);
+            this.gbRadioButtons.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -536,24 +532,24 @@
         private System.Windows.Forms.Label lbProductId;
         private System.Windows.Forms.TextBox tbRegisterId;
         private System.Windows.Forms.TextBox tbRegisterName;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbRegisterProductId;
+        private System.Windows.Forms.Label lbRegisterName;
+        private System.Windows.Forms.Label lbRegisterCategory;
+        private System.Windows.Forms.Label lbRegisterSellingPrice;
         private System.Windows.Forms.TextBox tbRegisterPrice;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbRegisterPrimeCost;
         private System.Windows.Forms.TextBox tbRegisterCost;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbRegisterNewProduct;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.ComboBox cbRegisterCategory;
         private System.Windows.Forms.Button btnDeliver;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.GroupBox gbRevenueInfo;
+        private System.Windows.Forms.Label lbRevenueCost;
+        private System.Windows.Forms.Label lbRevenueGrossSales;
+        private System.Windows.Forms.Label lbRevenuSales;
+        private System.Windows.Forms.Label lbRevenueIncome;
         private System.Windows.Forms.Button btnOrderSearch;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gbRadioButtons;
         private System.Windows.Forms.RadioButton rbAll;
         private System.Windows.Forms.RadioButton rbNotDelivred;
         private System.Windows.Forms.RadioButton rbDelivered;

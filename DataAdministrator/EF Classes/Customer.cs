@@ -34,6 +34,7 @@ namespace DataAdministrator.EF_Classes
         public virtual ICollection<Order> Orders { get; set; }
     }
 
+    //Customer Mock Data : Actually not used in application due to removing login feature 
     public class CutomerMockData
     {
         List<Customer> customers;
@@ -44,6 +45,7 @@ namespace DataAdministrator.EF_Classes
             {"mandeep@douglas.ca", "Mandeep", "Kaur", "700 Royal Ave, New Westminster", "778-333-1111"}
         };
 
+        // Create Customer objects list with mock data and return it to save database
         public List<Customer> getMockData()
         {
             customers = new List<Customer>();
